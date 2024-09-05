@@ -3,7 +3,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val BASE_URL = "http://172.20.10.12:3000/" // เปลี่ยนเป็น URL ของเซิร์ฟเวอร์คุณ
+    private const val BASE_URL = "http://10.13.3.241:3000/" // เปลี่ยนเป็น URL ของเซิร์ฟเวอร์คุณ
 
     private var retrofit: Retrofit? = null
 

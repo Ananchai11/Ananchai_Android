@@ -9,6 +9,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.widget.TextView
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+
 
 class ShowdataActivity : AppCompatActivity() {
 
@@ -77,5 +80,15 @@ class ShowdataActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.textViewcpu_speed).text = computer.cpu_speed.toString()
         findViewById<TextView>(R.id.textViewmemory_capacity).text = computer.memory_capacity.toString()
         findViewById<TextView>(R.id.textViewhard_disk_capacity).text = computer.hard_disk_capacity.toString()
+
+        // โหลดรูปภาพจาก URL และแสดงใน ImageView
+        val imageView = findViewById<ImageView>(R.id.imageView_computer)
+        Glide.with(this)
+            .load(computer.image) // URL ของรูปภาพ
+            .placeholder(R.drawable.ic_launcher_background) // ใช้ placeholder ที่มีอยู่ในโปรเจกต์
+            .error(R.drawable.ic_launcher_foreground) // ใช้ error image ที่มีอยู่ในโปรเจกต์
+            .into(imageView)
+
     }
+
 }

@@ -1,9 +1,14 @@
 package com.rmutto.ananchai_android
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,16 +17,13 @@ import androidx.core.view.WindowInsetsCompat
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
-// Import your own classes
-import com.rmutto.ananchai_android.ApiService
-import com.rmutto.ananchai_android.Computer
-import com.rmutto.ananchai_android.ApiResponse
-
-
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
 
 class InsertActivity : AppCompatActivity() {
     private lateinit var apiService: ApiService
+    private lateinit var selectedImageUri: Uri
+    private lateinit var imageViewSelectedImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,8 @@ class InsertActivity : AppCompatActivity() {
 
         val button2 = findViewById<Button>(R.id.button2)
         val saveButton = findViewById<Button>(R.id.button4)
+        val selectImageButton = findViewById<Button>(R.id.button_select_image)
+        imageViewSelectedImage = findViewById(R.id.imageView_selected_image)
         val brandNameEditText = findViewById<EditText>(R.id.editTextbrand_name)
         val modelNameEditText = findViewById<EditText>(R.id.editTextmodel_name)
         val serialNumberEditText = findViewById<EditText>(R.id.editTextserial_number)
@@ -55,6 +59,12 @@ class InsertActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Set up listener for the "Select Image" button
+        selectImageButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, 1000)
+        }
+
         // Set up listener for the "Save" button
         saveButton.setOnClickListener {
             val brandName = brandNameEditText.text.toString()
@@ -66,9 +76,18 @@ class InsertActivity : AppCompatActivity() {
             val memoryCapacity = memoryCapacityEditText.text.toString()
             val hardDiskCapacity = hardDiskCapacityEditText.text.toString()
 
+            // Convert image to base64 or a file
+            val imageStream: InputStream? = contentResolver.openInputStream(selectedImageUri)
+            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, selectedImageUri)
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+
             // Create a Computer object
+            val imageUriString = selectedImageUri.toString()  // เก็บ URI ของภาพเป็น String
+
             val computer = Computer(
-                image = "image_url", // ใช้ค่า default หรือเพิ่มการเลือกภาพจริงในแอป
+                image = imageUriString, // ส่งรูปภาพในรูปแบบ ByteArray
                 brand_name = brandName,
                 model_name = modelName,
                 serial_number = serialNumber,
@@ -93,6 +112,14 @@ class InsertActivity : AppCompatActivity() {
                     Toast.makeText(this@InsertActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == 1000) {
+            selectedImageUri = data?.data ?: return
+            imageViewSelectedImage.setImageURI(selectedImageUri)
         }
     }
 }

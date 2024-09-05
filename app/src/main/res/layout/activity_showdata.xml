@@ -9,31 +9,30 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="175dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="138dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/imageView_computer"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="รูปภาพคอมพิวเตอร์"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
-        app:srcCompat="@drawable/firefly" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="29dp"
         android:text="ชื่อแบรนด์ :"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/textViewbrand_name"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_computer"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
     <TextView
@@ -85,13 +84,13 @@
         android:id="@+id/textViewbrand_name"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="201dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="200dp"
         android:text="TextView"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_computer"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
     <TextView

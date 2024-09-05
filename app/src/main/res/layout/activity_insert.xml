@@ -21,7 +21,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <TextView
       android:id="@+id/textView8"
@@ -52,34 +52,61 @@
       app:layout_constraintTop_toBottomOf="@+id/editTextcpu_speed"
       tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
+  <!-- ปุ่มเลือกภาพ -->
   <TextView
       android:id="@+id/textView10"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="30dp"
-      android:layout_marginTop="38dp"
+      android:layout_marginStart="36dp"
+      android:layout_marginTop="20dp"
       android:text="อัพโหลดรูป"
       android:textColor="#040404"
       android:textSize="16sp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editTextmemory_capacity"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+
+  <ImageView
+      android:id="@+id/imageView_selected_image"
+      android:layout_width="198dp"
+      android:layout_height="114dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:background="@android:color/darker_gray"
+      android:contentDescription="รูปภาพที่เลือก"
+      android:scaleType="centerCrop"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.448"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/textView10" />
+
+  <Button
+      android:id="@+id/button_select_image"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="16dp"
+      android:text="เลือกภาพ"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/imageView_selected_image" />
 
   <Button
       android:id="@+id/button2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="120dp"
+      android:layout_marginTop="10dp"
       android:layout_marginEnd="40dp"
       android:text="ข้อมูล"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView10"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      app:layout_constraintTop_toBottomOf="@+id/imageView_selected_image"
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <EditText
       android:id="@+id/editTextbrand_name"
       android:layout_width="293dp"
-      android:layout_height="40dp"
+      android:layout_height="48dp"
       android:layout_marginStart="50dp"
       android:layout_marginTop="20dp"
       android:layout_marginEnd="68dp"
@@ -91,12 +118,12 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <EditText
       android:id="@+id/editTextmodel_name"
       android:layout_width="293dp"
-      android:layout_height="40dp"
+      android:layout_height="48dp"
       android:layout_marginStart="50dp"
       android:layout_marginTop="5dp"
       android:layout_marginEnd="68dp"
@@ -108,12 +135,12 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editTextbrand_name"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <EditText
       android:id="@+id/editTextserial_number"
       android:layout_width="293dp"
-      android:layout_height="40dp"
+      android:layout_height="48dp"
       android:layout_marginStart="50dp"
       android:layout_marginTop="5dp"
       android:layout_marginEnd="68dp"
@@ -125,12 +152,12 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editTextmodel_name"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <EditText
       android:id="@+id/editTextstock_quantity"
       android:layout_width="293dp"
-      android:layout_height="40dp"
+      android:layout_height="48dp"
       android:layout_marginStart="50dp"
       android:layout_marginTop="5dp"
       android:layout_marginEnd="68dp"
@@ -142,12 +169,12 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editTextserial_number"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <EditText
       android:id="@+id/editTextprice"
       android:layout_width="293dp"
-      android:layout_height="40dp"
+      android:layout_height="48dp"
       android:layout_marginStart="50dp"
       android:layout_marginTop="5dp"
       android:layout_marginEnd="68dp"
@@ -159,12 +186,12 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editTextstock_quantity"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <EditText
       android:id="@+id/editTextcpu_speed"
       android:layout_width="293dp"
-      android:layout_height="40dp"
+      android:layout_height="48dp"
       android:layout_marginStart="50dp"
       android:layout_marginTop="5dp"
       android:layout_marginEnd="68dp"
@@ -176,12 +203,12 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editTextprice"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <EditText
       android:id="@+id/editTextmemory_capacity"
       android:layout_width="98dp"
-      android:layout_height="35dp"
+      android:layout_height="48dp"
       android:layout_marginStart="54dp"
       android:layout_marginTop="20dp"
       android:layout_marginEnd="60dp"
@@ -194,12 +221,12 @@
       app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView8"
-      tools:ignore="MissingConstraints,SpeakableTextPresentCheck"/>
+      tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
   <EditText
       android:id="@+id/editTexthard_disk_capacity"
       android:layout_width="98dp"
-      android:layout_height="35dp"
+      android:layout_height="48dp"
       android:layout_marginTop="20dp"
       android:layout_marginEnd="80dp"
       android:background="@android:drawable/editbox_background"
@@ -215,11 +242,9 @@
       android:id="@+id/button4"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="22dp"
-      android:layout_marginTop="120dp"
-      android:layout_marginEnd="167dp"
+      android:layout_marginStart="26dp"
+      android:layout_marginTop="10dp"
       android:text="บันทึก"
-      app:layout_constraintEnd_toStartOf="@+id/button2"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView10" />
+      app:layout_constraintTop_toBottomOf="@+id/imageView_selected_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
